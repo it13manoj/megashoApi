@@ -1,0 +1,12 @@
+{
+    "Customer": {
+        "dbConfig": {
+            "host": "localhost",
+            "user": "root",
+            "password": "Qaz)(*098@",
+            "database": "megashops",
+            "dialect": "mysql",
+            "port": "3306"
+        }
+    }
+}
