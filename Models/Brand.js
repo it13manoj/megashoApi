@@ -39,7 +39,7 @@ module.exports = class Brand {
         return connection.execute(executeCreate, [this.parameter.name,this.parameter.categoryId]);
     }
 
-    static findCatBrand = ()=>{
+    static findCatBrand(){
         const executeFind = `SELECT b.id as bid,c._id as cid,b.name as bName,c.name as catName FROM brand b inner join categories c on c._id = b.category_id order by b.id desc`;
         return connection.execute(executeFind);
     }
