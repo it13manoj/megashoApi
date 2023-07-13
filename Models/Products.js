@@ -34,10 +34,9 @@ module.exports = class Products {
     }
 
     create() {
-        // console.log(this.parameter.categoryId,this.parameter.name,this.parameter.description,this.parameter.price,this.parameter.discount,this.parameter.url, this.parameter.imageurl, this.parameter.barnd)
         const executeCreate = `INSERT INTO products(category_id, name, description, price, discount, url, imageurl,brand_id) VALUES (?, ?, ?,?, ?, ?, ?, ?)`;
-        let data = connection.execute(executeCreate, [this.parameter.categoryId,this.parameter.name,this.parameter?.description,this.parameter.price,this.parameter.discount,this.parameter.url, this.parameter.imageurl, this.parameter.barnd]);
-        return data;
+        return connection.execute(executeCreate, [this.parameter.categoryId,this.parameter.name,this.parameter?.description,this.parameter.price,this.parameter.discount,this.parameter.url, this.parameter.imageurl, this.parameter.barnd]);
+      
     }
 
     edit() {
