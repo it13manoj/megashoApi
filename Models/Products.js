@@ -18,12 +18,12 @@ module.exports = class Products {
         return connection.execute(executeFind);
     }
 
-    static getProductList = () =>{
+    static getProductList(){
         const executeFind = `SELECT p.*,c.name as cname,b.name as bname FROM products p inner join categories c on c._id = p.category_id inner join brand b on b.id = p.brand_id order by id desc`;
         return connection.execute(executeFind);
     }
 
-    static list = (id) =>{
+    static list(id){
         const executeFind = `SELECT p.*,c.name as cname,b.name as bname FROM products p inner join categories c on c._id = p.category_id inner join  brand b on b.id = p.brand_id where c._id = ${id} order by id desc`;
         return connection.execute(executeFind);
     }
