@@ -3,7 +3,7 @@
         "dbConfig": {
             "host": "localhost",
             "user": "root",
-            "password": "11IT13manoj",
+            "password": "11IT13manoj@",
             "database": "megashops",
             "dialect": "mysql",
             "port": "3306"
