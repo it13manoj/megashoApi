@@ -17,7 +17,7 @@ exports.find = (Request, Response) => {
 }
 
 exports.findById = (Request, Response) => {
-    const _id = Request.body.id;
+    const _id = Request.body._id;
     UserModel.findById(_id).then(([uMR]) => {
         responseHelper[200].data = uMR;
         Response.send(responseHelper[200]);
@@ -41,13 +41,21 @@ exports.create = (Request, Response) => {
 exports.edit = (Request, Response) => {
     const _id = Request.params.aid;
     const requestBody = Request.body; 
-    requestBody.images= requestBody.fileName != undefined ? requestBody.fileName : null
     const uMe = new UserModel(requestBody,_id,null,null);
     uMe.edit().then(edituMR => {
         Response.send(responseHelper[200]);
     }).catch(uMeError => {
         sendError(Response, uMeError);
     });
+}
+
+exports.updateStatus = (Request,Response)=>{
+    const {_id } = Request.body;
+    UserModel.changeStatus(_id).then((results)=>{
+        Response.send(responseHelper[200]);
+    }).catch(Error=>{
+        sendError(Response,Error)
+    })
 }
 
 exports.delete = (Request, Response) => {

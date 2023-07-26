@@ -29,6 +29,7 @@ module.exports = class Products {
     }
 
     static findById(_id) {
+        console.log(_id)
         const executeFindById = `SELECT * FROM products WHERE _id = ?`;
         return connection.execute(executeFindById, [_id]);
     }

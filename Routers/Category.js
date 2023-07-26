@@ -61,5 +61,6 @@ Routes.post("/findById", aController.findById);
 Routes.post("/create",  aController.create);
 Routes.put("/edit/:aid", aController.edit);
 Routes.delete("/delete/:hid", aController.delete);
+Routes.put("/updateStatus",aController.updateStatus)
 
 module.exports = Routes;

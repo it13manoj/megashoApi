@@ -9,12 +9,12 @@ module.exports = class Category {
     }
 
      find() {
-        const executeFind = `SELECT * FROM categories`;
+        const executeFind = `SELECT * FROM categories where status="1" order by _id desc`;
         return connection.execute(executeFind);
     }
 
     static findById(_id) {
-        const executeFindById = `SELECT * FROM categories WHERE _id = ?`;
+        const executeFindById = `SELECT * FROM categories WHERE status = "1" _id = ?`;
         return connection.execute(executeFindById, [_id]);
     }
 
@@ -24,13 +24,19 @@ module.exports = class Category {
     }
 
     edit() {
-        console.log(this.parameter.description,this.parameter.images,this.parameter.status,this.id);
-        const executeEdit = `UPDATE categories SET name = ? , images = ? WHERE _id = ?`;
-        return connection.execute(executeEdit,[this.parameter.description,this.parameter.images,this.parameter.status,this.id]);
+        console.log(this.parameter.name,this.id)
+        const executeEdit = `UPDATE categories SET name = ?  WHERE _id = ?`;
+        return connection.execute(executeEdit,[this.parameter.name,this.id]);
     }
 
     delete(_id) {
+        
         const executeDelete = `DELETE FROM categories WHERE _id = ?`;
         return connection.execute(executeDelete, [_id]);
+    }
+    
+    static changeStatus(_id){
+        const executeStatues = `update categories set status = "0" where _id = ?`
+        return connection.execute(executeStatues,[_id]);
     }
 }

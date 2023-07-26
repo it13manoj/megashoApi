@@ -62,5 +62,6 @@ Routes.post("/getProducts", uController.getProducts);
 Routes.post("/create",  uController.create);
 Routes.put("/edit/:hid", uController.edit);
 Routes.delete("/delete/:hid", uController.delete);
+Routes.post("/findbyId", uController.findById);
 
 module.exports = Routes;

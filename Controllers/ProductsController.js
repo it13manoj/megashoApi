@@ -59,7 +59,7 @@ exports.getProducts = (Request, Response) => {
 }
 
 exports.findById = (Request, Response) => {
-    const _id = Request.body.id;
+    const {_id } = Request.body;
     UserModel.findById(_id).then(([uMR]) => {
         responseHelper[200].data = uMR;
         Response.send(responseHelper[200]);
